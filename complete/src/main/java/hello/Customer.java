@@ -3,6 +3,7 @@ package hello;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,8 +19,10 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+   @OneToOne(cascade=CascadeType.ALL)
+   @PrimaryKeyJoinColumn
+  //  @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+    
     Address address;
     
     public Address getAddress() {

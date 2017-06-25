@@ -18,10 +18,19 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner demo(CustomerRepository repository) {
+	public CommandLineRunner demo(CustomerRepository repository, PostRepository postRepo ) {
 		return (args) -> {
+			
+		    Post post = new Post("First post");
+           PostDetails details = new PostDetails("John Doe"); 
+           post.setDetails(details);
+          postRepo.save(post);
+			
 			Customer c = new Customer("mike", "stittleburg");
 			Address address = new Address();
+			address.setCity("kennesaw");
+			address.setState("GA");
+		  //  address.setCustomer(c);
 			repository.save(c);
 			address.setId(c.getId());
 			

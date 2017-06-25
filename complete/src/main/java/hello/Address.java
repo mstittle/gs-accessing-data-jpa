@@ -2,8 +2,10 @@ package hello;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -40,5 +42,17 @@ public class Address {
 	private String street;
 	private String city;
 	private String state;
+	
+//	@OneToOne(fetch = FetchType.LAZY)
+//    @MapsId
+//    private Customer customer;
+//
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+	
 
 }
